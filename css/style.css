@@ -1,38 +1,46 @@
-body{
+body{   
     display: flex;
     flex-direction: column;
+    
     width: 97vw;
     height: 97vh;
     background-image: url(/images/bg.jpg);
     background-repeat: no-repeat;
+    background-color: white;
+    background-blend-mode:luminosity;
     background-size:cover;
     background-clip: content-box;
     background-position: center;    
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    scroll-margin: 0;
+    justify-content: center;
 }
 .head{
     display: flex;
     flex-direction: row;
-    width: 85%;
-    height: 15vh;
-    background-color: rgba(104, 65, 65, 0.534);
+    padding: 4px;
+    width: 95vw;
+    margin:0px auto 0px auto;
+    background-color: rgba(46, 33, 165, 0.534);
     justify-self:center;
-    margin: 0 15%;
-    margin-top: -5px;
+    justify-items: center;
+    align-self: center;
+    justify-content: center;
+    text-align: center;   
+    margin-top: -40px;
     top:0;
     border-radius: 4px;
-    box-shadow: 1px 1px 5px 1px rgb(32, 32, 32);
+    box-shadow: 1px 1px 5px 1px  rgb(134, 134, 134) ;
 }
 header img{
     margin:4px;
     flex-basis: 2;
     flex-shrink: 1;
+    margin-right: 15px;
 }
 header h1{
-    margin: 5px auto;
+    margin: 5px 5px;
     justify-content: center;
     align-self: center;
     font-family: 'Open Sans', sans-serif;
@@ -40,13 +48,51 @@ header h1{
     color: white;
 }
 main{
-    border:solid black;
-    width: 85%;
-    height: 70vh;
-    margin-top: 5px ;
-  
+    display: flex;
+    position: relative;
+    flex-direction: row;    
+    justify-self:center;
+    align-self: center;
+    justify-content: center;
+    justify-items: center;  
+    height: 75%;
+    
+    
+    
+}
+.sec_principal{   
+    display: flex; 
+    flex-direction: row; 
+    flex-wrap: nowrap;
+    align-self: center;
     justify-content: center;
     align-items: center;
-    align-content: center;
-    justify-self: center;
+    border-radius: 4px;
+    box-shadow: 1px 1px 5px 1px rgb(134, 134, 134);
+    width: 85vw;
+    height: 100px;    
+    background-color: rgba(46, 33, 165, 0.534);
 }
+.pesquisa{
+    height: 20px;
+    padding: 5px;
+    width: 300px;
+    border-radius: 4px;
+    box-shadow: 1px 1px 5px 1px rgb(134, 134, 134);
+    font-weight: bolder;
+    
+    grid: 1;
+    }
+    .enviar{
+        height: 35px;
+        padding: 5px;
+        width: 150px;
+        justify-self: baseline;
+        margin-left: 15px;
+        margin right: 3px;
+        border-radius: 4px;
+        box-shadow: 1px 1px 5px 1px rgb(134, 134, 134);
+        font-weight: bolder;
+        font-size: 12pt;
+        grid: 1;
+        }
