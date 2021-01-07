@@ -1,7 +1,6 @@
 body{   
     display: flex;
-    flex-direction: column;
-    
+    flex-direction: column;    
     width: 97vw;
     height: 97vh;
     background-image: url(/images/bg.jpg);
@@ -32,6 +31,13 @@ body{
     top:0;
     border-radius: 4px;
     box-shadow: 1px 1px 5px 1px  rgb(134, 134, 134) ;
+    animation: go-back 3s ;
+}
+
+@keyframes go-back{
+    from{transform: translateY(800px);}
+    to{transform: translateY(0px);}
+}
 }
 header img{
     margin:4px;
@@ -72,6 +78,19 @@ main{
     width: 85vw;
     height: 100px;    
     background-color: rgba(46, 33, 165, 0.534);
+    animation: aparecer 5s;
+    animation: crescer 4s;
+    
+}
+@keyframes aparecer{
+    0%{ opacity: 0%;}
+    100%{opacity: 100%;}
+}
+@keyframes crescer{
+    0%{height: 0px;
+        width: 0vw;}
+        100%{height: 100px;
+        width: 85vw;}
 }
 .pesquisa{
     height: 20px;
@@ -79,9 +98,22 @@ main{
     width: 300px;
     border-radius: 4px;
     box-shadow: 1px 1px 5px 1px rgb(134, 134, 134);
-    font-weight: bolder;
-    
+    font-weight: bolder;    
     grid: 1;
+    visibility: hidden;
+    animation: aparecerpesq 5s ease 4s;
+    animation: crescerpesq 5s ease 4s;
+    animation-fill-mode: forwards;
+    }
+    @keyframes aparecerpesq{
+        0%{ opacity: 0%;visibility: visible;}
+        100%{opacity: 100%;visibility: visible;}
+    }
+    @keyframes crescerpesq{
+        0%{height: 0px;
+            width: 0px;visibility: visible;}
+            100%{height: 20px;
+            width: 300px;visibility: visible;}
     }
     .enviar{
         height: 35px;
@@ -95,4 +127,19 @@ main{
         font-weight: bolder;
         font-size: 12pt;
         grid: 1;
+        visibility: hidden;
+        animation: aparecerbot 5s ease 4s;
+        animation: crescerbot 5s ease 4s;
+        animation-fill-mode: forwards;
+        }
+        @keyframes aparecerbot{
+            0%{ opacity: 0%;visibility: visible;}
+            100%{opacity: 100%;visibility: visible;}
+        }
+        @keyframes crescerbot{
+            0%{height: 0px;
+                width: 0px;visibility: visible;
+            font-size: 0pt;}
+                100%{height: 35px;
+                width: 150px;visibility: visible;font-size: 12pt;}
         }
