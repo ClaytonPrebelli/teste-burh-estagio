@@ -38,7 +38,7 @@ body{
     from{transform: translateY(800px);}
     to{transform: translateY(0px);}
 }
-}
+
 header img{
     margin:4px;
     flex-basis: 2;
@@ -122,12 +122,13 @@ main{
         width: 150px;
         justify-self: baseline;
         margin-left: 15px;
-        margin right: 3px;
+        margin-right: 3px;
         border-radius: 4px;
         box-shadow: 1px 1px 5px 1px rgb(134, 134, 134);
         font-weight: bolder;
         font-size: 12pt;
         grid: 1;
+        cursor: pointer;
         visibility: hidden;
         animation: aparecerbot 5s ease 4s;
         animation: crescerbot 5s ease 4s;
@@ -147,26 +148,53 @@ main{
 
         .ficha{
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
             flex-wrap: nowrap;
-            border:solid red; 
-            height: 300px;
-            width: 700px;
+          /*  border:solid red; */
+            height: 350px;
+            width: 300px;
             position:absolute;
             justify-self: center;
             align-self: center;
             position: absolute;
-            margin-top: 45px;
+            margin-top: 55px;
+            visibility:visible;
+            bottom: 0%;
         }
+        
         .poster{
-            border: solid green;
-            width: 30%;
-            height: 100%;
+            display: flex;
+            grid-area: span 2px;
+            position:static;
+            justify-self: center;
+            align-self: center;
+            image-resolution:350px 200px;
+            resize:vertical;
+            flex-basis:auto;
+          /*-  border: solid green;*/
+            width: 80%;
+            height: 85%;
         }
-        .resumo{
-            border: solid yellow;
-            width: 70%;
+        .poster img{                
             height: 100%;
+            width: 100%;
+
+        }
+        .titulo{
+            display: flex;
+            position: relative;
+            flex-wrap:wrap;   
+            flex-grow:;  
+            background-color: rgba(46, 33, 165, 0.534); 
+            border-radius: 4px;
+             box-shadow: 1px 1px 5px 1px rgb(134, 134, 134);
+            width: 300px;
+            height: 80px;
+            padding: 0px;
+        }
+        .label{
+            margin-bottom: 0px;
+            margin-top: 0px;
         }
         @media (max-width:360px){
             .ficha{
@@ -185,7 +213,24 @@ main{
             .resumo{
                 justify-self:center;
                 margin: 0px auto;
-                height: 40%
+                height: 40%;
             }
 
         }
+       
+    .label{
+        font-weight: bold;
+        flex-basis: 0.5;
+        margin-left: 7px;
+        
+    }
+    .title{
+        flex-basis: 7;
+        justify-self: left;
+    }
+    .quebra{
+        flex-basis: 100%;
+        width: 0px;
+        height: 0px;        
+        margin: -10px;
+    }

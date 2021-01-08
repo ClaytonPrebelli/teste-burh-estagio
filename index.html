@@ -26,21 +26,30 @@
 <meta  name = "msapplication-TileImage"  content = "fav/ms-icon-144x144.png" > 
 <meta  name = "theme-color"  content = "#ffffff" >
     <title>World Cinematic Search</title>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+ <!--   <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>-->
     <link rel = "preconnect" href = "https://fonts.gstatic.com">
 <link href = "https://fonts.googleapis.com/css2? family = Open + Sans: wght @ 300 & display = swap "rel =" stylesheet ">
     <link rel="stylesheet" href="/css/style.css">
-    
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        
 </head>
 <body>
     <header class="head" id="header"><img src="images/logo.png" alt=""><h1>World Cinematic Search</h1></header>
     <main class="main" id="main">
         <section id="sec_principal" class="sec_principal">
             <input type="text" name="pesquisa" id="pesquisa" class="pesquisa" placeholder="Insira o Título a ser pesquisado">
-            <button id="enviar" class="enviar">Pesquisar</button>
+            <button id="enviar" class="enviar" onclick="pesquisar ();">Pesquisar</button>
         </section>
-        <section id="ficha" class="ficha"><div id="poster" class="poster"></div><div id="resumo" class="resumo"></div></section>
-    
+        <section id="ficha" class="ficha"><div id="titulo" class="titulo">
+            <p class="label">Título:</p><p class="title label" id="title"></p>
+           <div class="quebra"></div><p class="label">Ano:</p><p class="title label" id="year"></p>
+            
+
+
+        </div><div id="poster" class="poster">
+            <img src="" alt="Poser do Filme Selecionado" id="capa">
+        </div></section>
+        
     </main>
         
     
