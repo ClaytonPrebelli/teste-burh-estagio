@@ -32,7 +32,7 @@
  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <link rel="stylesheet" href="/css/style.css">
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-        
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
 </head>
 <body>
     <header class="head" id="header"><img src="images/logo.png" alt=""><h1>World Cinematic Search</h1></header>
@@ -41,14 +41,9 @@
             <input type="text" name="pesquisa" id="pesquisa" class="pesquisa" placeholder="Insira o Título a ser pesquisado">
             <button id="enviar" class="enviar" onclick="pesquisar ();">Pesquisar</button>
         </section>
-        <section id="ficha" class="ficha"><div id="titulo" class="titulo">
-            <p class="label">Título:</p><p class="title label" id="title"></p>
-           <div class="quebra"></div><p class="label">Ano:</p><p class="title label" id="year"></p>
-            
-        </div><div id="poster" class="poster">
-            <img src="images/bg.jpg" alt="Poser do Filme Selecionado" id="capa">
-        </div></section>
-        
+        <div id="fichas">
+         
+        </div>      
     </main>
         
     

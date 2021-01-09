@@ -1,37 +1,40 @@
 let clicado=0;
+let capa_nao = 'images/no_poster.png'
+let i=0;
 function pesquisar(){
     
     var url = "http://www.omdbapi.com/";
     var titulo = document.getElementById("pesquisa").value;
     var chave = "49f3de13";
-    var requisito = url+"?t="+titulo+"&apikey="+chave;
-    var classe = ["title","genre","director","language"]
-    var i = 0;
-    var title = document.getElementById(classe[i]).innerHTML="";
-    document.getElementById("year").innerHTML="";
-    let capa = document.getElementById("capa");
-        function ver_capa(data){
-        if(data!="N/A"){
-    $("#capa").attr('src',data);}else{
-        capa.src = '/images/no_poster.png';
-    }
-}
+    var requisito = url+"?s="+titulo+"&apikey="+chave;
+  /*  document.getElementById("year").innerHTML="";*/
+    let capa = document.getElementById("capa");       
+
             $.ajax({
             url : requisito,
             type : "get",
             datatype : "json",
-                success : function(data){            
-            $("#title").append(data.Title);    
-            $("#year").append(data.Year);
-            ver_capa(data.Poster);
-            alertaretorno(data.Response);
-            },
-                error : function(erro){
-                    alert(erro);
+            
+                success : function(data){                 
+                let vamla = data.Search; 
+                alertaretorno(data.Response);
+                vamla.forEach(function (){
+                    console.log(vamla);                                                   
+                    document.getElementById("fichas").innerHTML += `<div id="ficha${i}" class="ficha"><div id="favoritos${i}" class="favoritos"><a id="favoritou${i}" onclick="favoritou()"><p class="label"><i class="fas fa-star"></i>Adicionar aos Favoritos</p></a></div><div id="titulo${i}" class="titulo"><p class="label">Título: ${vamla[i].Title}</p><p class="label">Ano: ${vamla[i].Year}</p></div><div id="poster${i}" class="poster"><a id="link_capa${i}" onclick="ficha_completa()"><img src="${ver_capa(vamla,i)}" alt="Poser do Filme Selecionado" id="capa${i}"></a></div></div>`;
+                  i++;
+                });
+                function ver_capa(){
+                if(vamla[i].Poster == "N/A"){
+                    return capa_nao }else{
+                     return vamla[i].Poster
+            }}
+                        },
+                error : function(error){
+                    alert(error);
                 }
             
-       });
-       function alertaretorno(data){
+       });  }
+    function alertaretorno(data){
            
            if (data=="False"){
             Swal.fire({
@@ -40,16 +43,18 @@ function pesquisar(){
                 text: 'O filme não foi encontrado, tente novamente!',})
            }else{
                if(clicado!=1){
-               let aparece_ficha = document.getElementById("ficha");
+               let aparece_ficha = document.getElementById("fichas");
                aparece_ficha.style.animation = "";
-               setTimeout(() => aparece_ficha.style.animation = "aparecer_ficha 3s ease 1s forwards",2);
+               setTimeout(() => aparece_ficha.style.animation = "aparecer_ficha 1s ease 1s forwards",2);
                let pesq = document.getElementById("sec_principal");
                pesq.style.animation = "";
-               setTimeout(() => pesq.style.animation = "deslizar_cima forwards 3s", 2);
+               setTimeout(() => pesq.style.animation = "deslizar_cima forwards 1s", 2);
+               }else{
+                   i=0;
+                   document.getElementById("fichas").innerHTML = ""; 
                }
            }
-        clicado=1}}
-       
-    
-       
-    
+        clicado=1}
+       function ficha_completa(){
+           alert("clicou")
+       }
