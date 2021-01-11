@@ -3,8 +3,7 @@ body{
     flex-direction:column;
     flex-wrap: nowrap;
     width:99%;
-    height: 100%;
-   
+    height: 100%;   
     background-color: white;
     background-blend-mode:luminosity;
     background-size:cover;
@@ -197,8 +196,8 @@ main{
             100%{opacity: 100%; ;visibility: visible;}
         }
         @keyframes some_fichas{
-            0%{ opacity:100%; visibility: visible;}
-            100%{opacity: 0%; ;visibility: hidden;width: 0px;height: 0px;}
+            0%{ opacity:100%; visibility: hidden;width: 0px;height: 0px;user-select: none;max-height: 0px;max-width: 0px;}
+            100%{opacity: 0%; ;visibility: hidden;width: 0px;height: 0px;user-select: none;max-height: 0px;max-width: 0px;}
         }
         
         .poster{
@@ -242,14 +241,17 @@ main{
             margin-top: 0px;
             align-self: center;
         }
-        @media (max-width:360px){
+        @media (max-width:480px){
+            .ficha_completa{
+                margin-top:150px;
+                justify-content: center;
+            }
             .ficha{
                 flex-direction: column;
-                align-self:flex-end;
                 height: 450px;
-                margin-top:85px;
-                position:absolute;
-                bottom:0;
+                margin-top:0x;
+                margin-bottom: 0px;     
+                
             }
             .poster{
                 justify-self: center;
@@ -302,20 +304,20 @@ main{
     }
     .ficha_completa{
     border-radius: 4px;
-    z-index: 14;    
+    z-index: 18;    
     box-shadow: 1px 1px 5px 1px rgb(134, 134, 134);
     position: absolute;    
     margin-top: 120px;
     width: 95vw;    
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: start;    
+    flex-wrap: wrap; 
     padding: 2px 4px;
     visibility: hidden;   
     }
+   
     @keyframes some_resumo{
-        0%{ opacity:100%; visibility: visible;}
+        0%{ opacity:100%; visibility: hidden;}
         100%{opacity: 0%; ;visibility: hidden; width: 0px; height: 0px;}
     }
     @keyframes aparece_resumo{
@@ -352,8 +354,61 @@ main{
         flex-wrap: wrap;
         
     }
-    #itens1{    
-    
+    @media (max-width:640px){
+        .secao_completa{
+            display: flex;
+        flex-direction: row;
+        justify-items: center;
+        justify-self: center;
+        justify-content: center;
+        height: 110%;
+
+        }
+        .titulo_grande{
+            display: flex;
+            flex-direction: row;
+            font-size: 8pt;
+            text-align: center;}
+            .junta_itens{
+                width: 100%;               
+                display: flex;
+                flex-direction: column;
+                flex-wrap: wrap;  
+                             
+            }
+            #itens1{  
+                display: flex;
+                flex-direction: column;
+                flex-wrap: wrap;
+                justify-items: center;   
+                text-align: center;             
+                min-width:93%;
+                padding: 0px;
+                grid: 1;
+                }
+                #itens2{   
+                    display: flex;
+                flex-direction: column;
+                flex-wrap: wrap;
+                justify-items: center;   
+                text-align: center;              
+                    min-width:93%;                   
+                    }
+                #descricao{
+                    display: flex;
+                    flex-direction: column;
+                    flex-wrap: wrap;
+                    justify-items: center;   
+                    text-align: center;     
+                    min-height: 100%;
+                    max-width:93%; 
+                }
+                @keyframes some_fichas{
+                    0%{ opacity:100%; visibility: visible;}
+                    100%{opacity: 0%; ;visibility: hidden;width: 0px;height: 0px;user-select: none;height: 0px;width: 0px;}
+                }
+    }
+    #itens1{        
     background-color: rgba(46, 33, 165, 0.534);
     height: 62%;
     width:28%;

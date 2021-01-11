@@ -3,7 +3,9 @@ let capa_nao = 'images/no_poster.png'
 let i=0;
 let clica_capa=0
 function pesquisar(){
-    
+    let some_resumo = document.getElementById("ficha_completa");
+               some_resumo.style.animation = "";
+               setTimeout(() => some_resumo.style.animation = "some_resumo 1s ease 1s forwards",2);
     var url = "http://www.omdbapi.com/";
     var titulo = document.getElementById("pesquisa").value;
     var chave = "49f3de13";
