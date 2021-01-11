@@ -16,12 +16,12 @@ Arquivos necessários para melhor apresentação de Favicon de acordo com dispos
 Arquivos de estilo.
 
 ## Contato
-<a href="https://www.linkedin.com/in/clayton-prebelli/" target="_blank">Linkedin<a>
-<a href="https://prebelli.online" target="_blank">Página pessoal</a>
-<a href="https://burh.com.br/claytonprebelli" target="_blank">Perfil no BURH</a>
+<a href="https://www.linkedin.com/in/clayton-prebelli/" target="_blank">Linkedin<a></br>
+<a href="https://prebelli.online" target="_blank">Página pessoal</a></br>
+<a href="https://burh.com.br/claytonprebelli" target="_blank">Perfil no BURH</a></br>
 
 ## Link do Projeto
-Podemos visualizar o projeto hospedado em uma subpasta de minha página pessoal <a href="https://prebelli.online/cinematic" target="_blank">https://prebelli.online/cinematic</a>
+Podemos visualizar o projeto hospedado em uma subpasta de minha página pessoal <a href="https://prebelli.online/cinematic" target="_blank">https://prebelli.online/cinematic</a>, onde temos um ambiente seguro, certificado SSL e estabilidde dos serviços.
 
 ## Utilização
 Inserindo na barra de pesquisa o Título desejado, a aplicação exibirá uma lista de filmes que contenham o nome solicitado. Ao clicar na capa, podemos ver mais detalhes sobre o mesmo. Clicando novamente na capa da descrição completa, voltamos a lista de filmes encontrada.
