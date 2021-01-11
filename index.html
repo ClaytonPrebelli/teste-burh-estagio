@@ -39,16 +39,78 @@
     <main class="main" id="main">
         <section id="sec_principal" class="sec_principal">
             <input type="text" name="pesquisa" id="pesquisa" class="pesquisa" placeholder="Insira o Título a ser pesquisado">
-            <button id="enviar" class="enviar" onclick="pesquisar ();">Pesquisar</button>
+            <button id="enviar" class="enviar" onclick="pesquisar()">Pesquisar</button>
         </section>
         <div id="fichas">
          
         </div>      
+        <div class="ficha_completa" id="ficha_completa">
+    </div>
     </main>
         
     
-    
       <script type="text/javascript" src="js/script1.js"></script>
+      
+      <script>
+        function ficha_completa(i){
+                /*Area de animações*/
+                
+                let some_ficha = document.getElementById("fichas");
+               some_ficha.style.animation = "";
+               setTimeout(() => some_ficha.style.animation = "some_fichas 1s ease 1s forwards",2);
+               let aparece_resumo = document.getElementById("ficha_completa");
+               aparece_resumo.style.animation = "";
+               setTimeout(() => aparece_resumo.style.animation = "aparece_resumo 1s ease 1s forwards",2);
+               document.getElementById('fichas').focus;
+               
+
+            var titulo = document.getElementById("pesquisa").value; 
+            var url = "http://www.omdbapi.com/";
+    var chave = "49f3de13";
+    var requisito = `${url}?s=${titulo}&apikey=${chave}`;  
+    console.log(requisito);
+    let capa_nao = 'images/no_poster.png'
+            $.ajax({
+            url : requisito,
+            type : "get",
+            datatype : "json",
+            
+                success : function(data){                 
+                let vamla = data.Search; 
+                let id = vamla[i].imdbID;
+                var requisitoid = `${url}?i=${id}&apikey=${chave}`;
+                                $.ajax({
+                            url : requisitoid,
+                            type : "get",
+                            datatype : "json",
+                            success : function(data1){
+                                let vamla1 = data1; 
+                document.getElementById("ficha_completa").innerHTML =`<div id="capa_grande"><img src="${ver_capa(vamla1,i)}" alt="Capa" onclick="some_geral()" class="clicavel"></div><div class="secao_completa" id="secao_completa"><div class="titulo_grande" id="titulo_grande"><h1 class="labels">Título: ${vamla1.Title}</h1></div><div class="junta_itens" id="junta_itens"><div id="itens1" class="itens"><p class="labels">Ano: ${vamla1.Year}</p><p class="labels">Classificação: ${vamla1.Rated}</p><p class="labels">Estréia: ${vamla1.Released}</p><p class="labels">Duração: ${vamla1.Runtime}</p><p class="labels">Gênero: ${vamla1.Genre}</p></div><div id="itens2" class="itens"><p class="labels">Diretor: ${vamla1.Director}</p><p class="labels">Elenco: ${vamla1.Actors}</p><p class="labels">Idioma Original: ${vamla1.Language}</p><p class="labels">País: ${vamla1.Country}</p><p class="labels">Prêmios: ${vamla1.Awards}</p></div><div id="descricao" class="descricao"><h3 class="labels">Sinopse</h3><p class="labels">${vamla1.Plot}</p></div></div></div>`;
+    function ver_capa(){                    
+                if(vamla1.Poster == "N/A"){                    
+                    return capa_nao}else{
+                     return vamla1.Poster}
+                    };
+        
+                },
+                error : function(error){
+                    alert(error);
+                }});
+            },
+            error : function(error){
+                    alert(error);
+                }
+       });
+       };
+       function some_geral(){
+        let aparece_ficha = document.getElementById("fichas");
+               aparece_ficha.style.animation = "";
+               setTimeout(() => aparece_ficha.style.animation = "aparecer_ficha 1s ease 1s forwards",2);
+               let some_resumo = document.getElementById("ficha_completa");
+               some_resumo.style.animation = "";
+               setTimeout(() => some_resumo.style.animation = "some_resumo 1s ease 1s forwards",2);
+       }
+</script>
 </body>
 </html>
 

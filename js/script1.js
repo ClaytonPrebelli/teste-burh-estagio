@@ -1,15 +1,16 @@
 let clicado=0;
 let capa_nao = 'images/no_poster.png'
 let i=0;
+let clica_capa=0
 function pesquisar(){
     
     var url = "http://www.omdbapi.com/";
     var titulo = document.getElementById("pesquisa").value;
     var chave = "49f3de13";
     var requisito = url+"?s="+titulo+"&apikey="+chave;
-  /*  document.getElementById("year").innerHTML="";*/
-    let capa = document.getElementById("capa");       
 
+    let capa = document.getElementById("capa");     
+    
             $.ajax({
             url : requisito,
             type : "get",
@@ -17,23 +18,28 @@ function pesquisar(){
             
                 success : function(data){                 
                 let vamla = data.Search; 
+                
                 alertaretorno(data.Response);
-                vamla.forEach(function (){
-                    console.log(vamla);                                                   
-                    document.getElementById("fichas").innerHTML += `<div id="ficha${i}" class="ficha"><div id="favoritos${i}" class="favoritos"><a id="favoritou${i}" onclick="favoritou()"><p class="label"><i class="fas fa-star"></i>Adicionar aos Favoritos</p></a></div><div id="titulo${i}" class="titulo"><p class="label">Título: ${vamla[i].Title}</p><p class="label">Ano: ${vamla[i].Year}</p></div><div id="poster${i}" class="poster"><a id="link_capa${i}" onclick="ficha_completa()"><img src="${ver_capa(vamla,i)}" alt="Poser do Filme Selecionado" id="capa${i}"></a></div></div>`;
+                vamla.forEach(function (){                                                  
+                    document.getElementById("fichas").innerHTML += `<div id="ficha${i}" class="ficha"><div id="titulo${i}" class="titulo"><p class="label">Título: ${vamla[i].Title}</p><p class="label">Ano: ${vamla[i].Year}</p></div><div id="poster${i}" class="poster"><a id="link_capa${i}" name="${i}" onclick="ficha_completa(${i})"><img src="${ver_capa(vamla,i)}" alt="Poser do Filme Selecionado" id="capa${i}" class="clicavel"></a></div></div>`;
                   i++;
                 });
-                function ver_capa(){
-                if(vamla[i].Poster == "N/A"){
+                /* adicionar as capas*/
+                function ver_capa(){                    
+                if(vamla[i].Poster == "N/A"){                    
                     return capa_nao }else{
                      return vamla[i].Poster
             }}
+            
+            
+            
                         },
                 error : function(error){
                     alert(error);
                 }
-            
+                
        });  }
+       
     function alertaretorno(data){
            
            if (data=="False"){
@@ -55,6 +61,4 @@ function pesquisar(){
                }
            }
         clicado=1}
-       function ficha_completa(){
-           alert("clicou")
-       }
+       
